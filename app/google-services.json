@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "357611571575",
+    "firebase_url": "https://highway-fetch.firebaseio.com",
+    "project_id": "highway-fetch",
+    "storage_bucket": "highway-fetch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357611571575:android:7f7b8e574e0acdc1",
+        "android_client_info": {
+          "package_name": "kdas.i_nterface.fetch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357611571575-l56umocrobihfcocrb1u30e95b2jh1gd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kdas.i_nterface.fetch",
+            "certificate_hash": "541502dde1156bae9c3cee945af3f7edc91ca51a"
+          }
+        },
+        {
+          "client_id": "357611571575-iveufmc1utrhpil9i9s5b7bse9jmrn44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyLrlL4NpqT4xF7cQpGem9j3C3zkjYOYk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357611571575-iveufmc1utrhpil9i9s5b7bse9jmrn44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

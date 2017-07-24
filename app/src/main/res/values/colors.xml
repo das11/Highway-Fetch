@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#039BE5</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#039BE5</color>
+
+    <color name="some_teal">#1D9788</color>
+    <color name="some_teal2">#44B3A5</color>
+    <color name="some_teal3">#1D9788</color>
+    <color name="some_teal4">#409c85</color>
+
+    <color name="trans">#6613fff6</color>
+
+    <color name="blue_white">#89d7fe</color>
+
+    <color name="yellow">#F9A825</color>
+    <color name="yellow_2">#FFEB3B</color>
+    <color name="grey">#BDBDBD</color>
+    <color name="some_neon">#20FFff</color>
+    <color name="some_accent">#32A9E3</color>
+    <color name="some_red">#E65100</color>
+    <color name="some_white">#FCFAFA</color>
+    <array name="dot_colors">
+        <item>#03A9F4</item>
+        <item>#E65100</item>
+        <item>#FFBB00</item>
+    </array>
+
+    <array name="dot_colors_toolbar">
+        <item>#ffffff</item>
+        <item>#BDBDBD</item>
+    </array>
+</resources>
