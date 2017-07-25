@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "357611571575",
-    "firebase_url": "https://highway-fetch.firebaseio.com",
-    "project_id": "highway-fetch",
-    "storage_bucket": "highway-fetch.appspot.com"
+    "project_number": "934861624923",
+    "firebase_url": "https://highway-fetch-69277.firebaseio.com",
+    "project_id": "highway-fetch-69277",
+    "storage_bucket": "highway-fetch-69277.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:357611571575:android:7f7b8e574e0acdc1",
+        "mobilesdk_app_id": "1:934861624923:android:7f7b8e574e0acdc1",
         "android_client_info": {
           "package_name": "kdas.i_nterface.fetch"
         }
       },
       "oauth_client": [
         {
-          "client_id": "357611571575-l56umocrobihfcocrb1u30e95b2jh1gd.apps.googleusercontent.com",
+          "client_id": "934861624923-4oics57v68dpgosgi2tofbdc9quh5kf9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "kdas.i_nterface.fetch",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "357611571575-iveufmc1utrhpil9i9s5b7bse9jmrn44.apps.googleusercontent.com",
+          "client_id": "934861624923-4r6oi2mvfgs0kjnicot7gmrk6qqsck03.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDyLrlL4NpqT4xF7cQpGem9j3C3zkjYOYk"
+          "current_key": "AIzaSyDX-JChpFbuaZxy0c8nZuclAjkVYd3x8hc"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "357611571575-iveufmc1utrhpil9i9s5b7bse9jmrn44.apps.googleusercontent.com",
+              "client_id": "934861624923-4r6oi2mvfgs0kjnicot7gmrk6qqsck03.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
