@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity implements
         places.add("Police Station");
         places.add("Car service");
         places.add("Bike service");
+        places.add("Public Toilet");
+        places.add("Tyre Repair");
+        places.add("Refueling station");
+        places.add("Drinking Water");
 
         final ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, places);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

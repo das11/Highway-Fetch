@@ -11,29 +11,52 @@
     tools:context="kdas.i_nterface.fetch.help">
 
     <TextView
+        android:text="Sasanka Boruah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:fontFamily="serif-monospace"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:fontFamily="serif-monospace"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:text="sasanka.borua@rgi.edu.in"
+        android:layout_below="@+id/textView8"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="8811003129"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:fontFamily="serif-monospace"
+        android:textSize="18sp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentStart="true" />
+
+    <TextView
         android:text="8876721208"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
         android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:fontFamily="serif-monospace"
+        android:textSize="18sp"
         android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginTop="11dp"
-        android:fontFamily="serif-monospace"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="Kabir Das"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:textAppearance="@android:style/TextAppearance.Material.Small"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="39dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:fontFamily="serif-monospace"
-        android:textSize="18sp" />
+        android:layout_marginTop="13dp" />
 
     <TextView
         android:text="kabird1196@gmail.com"
@@ -41,9 +64,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
         android:textAppearance="@android:style/TextAppearance.Material.Small"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_marginTop="11dp"
         android:fontFamily="serif-monospace"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
+
+    <TextView
+        android:text="Kabir Das"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:fontFamily="serif-monospace"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="93dp" />
 </RelativeLayout>
