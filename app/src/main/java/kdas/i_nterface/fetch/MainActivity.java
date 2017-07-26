@@ -50,19 +50,22 @@ public class MainActivity extends AppCompatActivity implements
     boolean chk;
     boolean fetched = false;
     boolean once = false;
+    boolean flag = false;
 
     Location coord;
 
-    String place,name_s, phone_s, dis_s, town_s, location_name;
+    String place,name_s, phone_s, dis_s, town_s, location_name, nic_s, dic_s, cic_s;
 
-    EditText name, phone, dis, town, location_name_ed;
+    EditText name, phone, dis, town, location_name_ed, nic, dic, cic;
     RadioButton radioButton;
-    TextView textView;
+    TextView textView, acc_tv;
+
+    com.wang.avi.AVLoadingIndicatorView avLoadingIndicatorView;
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference root = firebaseDatabase.getReference();
 
-    DatabaseReference district, f_town, f_name, f_phone, f_place, f_location, f_placename;
+    DatabaseReference district, f_town, f_name, f_phone, f_place, f_location, f_placename, f_nic, f_dic, f_cic, incharge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +79,15 @@ public class MainActivity extends AppCompatActivity implements
         town = (EditText)findViewById(R.id.editText4);
         location_name_ed = (EditText)findViewById(R.id.editText5);
 
+        nic = (EditText)findViewById(R.id.editText_nic);
+        dic = (EditText)findViewById(R.id.editText8_dic);
+        cic = (EditText)findViewById(R.id.editText7_cic);
+
         radioButton = (RadioButton)findViewById(R.id.radioButton);
         textView = (TextView)findViewById(R.id.textView);
+
+        avLoadingIndicatorView = (com.wang.avi.AVLoadingIndicatorView)findViewById(R.id.loader_accuracy);
+        acc_tv = (TextView)findViewById(R.id.acc_tv);
 
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
         final List<String> places = new ArrayList<>();
@@ -112,12 +122,16 @@ public class MainActivity extends AppCompatActivity implements
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (fetched){
+                if (fetched && flag_check()){
                     name_s = name.getText().toString();
                     phone_s = phone.getText().toString();
                     dis_s = dis.getText().toString();
                     town_s = town.getText().toString();
                     location_name = location_name_ed.getText().toString();
+
+                    nic_s = nic.getText().toString();
+                    dic_s = dic.getText().toString();
+                    cic_s = cic.getText().toString();
 
                     Log.d("ds", place +  name_s + phone_s + dis_s + town_s + "");
 
@@ -128,6 +142,10 @@ public class MainActivity extends AppCompatActivity implements
                     f_location = f_placename.child("location");
                     f_name = f_placename.child("name");
                     f_phone = f_placename.child("phone");
+                    incharge = f_placename.child("Incharge");
+                    f_nic = incharge.child("name");
+                    f_dic = incharge.child("designation");
+                    f_cic = incharge.child("phone");
 
                     f_name.setValue(name_s);
                     f_phone.setValue(phone_s);
@@ -137,6 +155,9 @@ public class MainActivity extends AppCompatActivity implements
                                 textView.setText("Location saved");
                         }
                     });
+                    f_nic.setValue(nic_s);
+                    f_dic.setValue(dic_s);
+                    f_cic.setValue(cic_s);
 
                 }
 
@@ -184,6 +205,26 @@ public class MainActivity extends AppCompatActivity implements
 //            mGoogleApiClient.connect();
 //    }
 
+    private boolean flag_check() {
+
+        if (!name.getText().toString().isEmpty()
+                && !dis.getText().toString().isEmpty()
+                && !phone.getText().toString().isEmpty()
+                && !town.getText().toString().isEmpty()
+                && !location_name_ed.getText().toString().isEmpty()
+                && !nic.getText().toString().isEmpty()
+                && !dic.getText().toString().isEmpty()
+                && !cic.getText().toString().isEmpty()) {
+
+            return true;
+        } else {
+
+            Toast.makeText(getApplicationContext(), "ALL FIELDS MANDATORY", Toast.LENGTH_LONG).show();
+
+            return false;
+        }
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -230,10 +271,12 @@ public class MainActivity extends AppCompatActivity implements
 
     private void handleLocation(Location location) {
 
-        if (location.getAccuracy() < 100 && !once){
+        if (location.getAccuracy() < 80 && !once){
             coord = location;
             fetched = true;
-            once = true;
+
+            avLoadingIndicatorView.hide();
+            acc_tv.setText(coord.getAccuracy() + " M accuracy");
 
             textView.setText("Co-ordinates fetched");
 
@@ -243,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements
         }
 
 
-        Toast.makeText(getApplicationContext(), "Location \n" + location + "acc" + location.getAccuracy(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Location \n" + location + "acc" + location.getAccuracy(), Toast.LENGTH_LONG).show();
         Log.d("loc", location + "");
 
     }

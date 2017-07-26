@@ -15,70 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:prompt="@string/select"
         android:layout_centerHorizontal="true"
         android:id="@+id/spinner" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText_name"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentEnd="true"
-        android:hint="Phone" />
-
-    <Button
-        android:text="Submit"
-        android:background="@color/some_teal2"
-        android:fontFamily="sans-serif-light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp"
-        android:id="@+id/btn" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editText2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="23dp"
-        android:id="@+id/editText3"
-        android:layout_toStartOf="@+id/floatingActionButton"
-        android:fontFamily="sans-serif-light"
-        android:hint="District" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords|textPersonName"
         android:ems="10"
         android:layout_alignTop="@+id/editText3"
         android:layout_alignParentEnd="true"
         android:id="@+id/editText4"
-        android:layout_toEndOf="@+id/floatingActionButton"
+        android:layout_toEndOf="@+id/textView"
         android:fontFamily="sans-serif-light"
         android:hint="Town/City" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName|textCapWords"
-        android:ems="10"
-        android:layout_marginTop="62dp"
-        android:id="@+id/editText_name"
-        android:hint="Name"
-        android:fontFamily="sans-serif-light"
-        android:layout_below="@+id/spinner"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -93,16 +44,15 @@
         android:fontFamily="sans-serif-light"
         android:layout_alignParentEnd="true" />
 
-    <RadioButton
-        android:clickable="false"
+    <Button
+        android:text="Submit"
+        android:background="@color/some_teal2"
+        android:fontFamily="sans-serif-light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioButton"
-        app:buttonTint="@color/some_red"
-        android:layout_marginStart="48dp"
-        android:layout_alignBaseline="@+id/textView"
-        android:layout_alignBottom="@+id/textView"
-        android:layout_toEndOf="@+id/btn" />
+        android:id="@+id/btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -111,9 +61,9 @@
         app:fabSize="normal"
         app:srcCompat="@drawable/pin"
         android:id="@+id/floatingActionButton"
-        android:layout_marginBottom="18dp"
         android:layout_above="@+id/btn"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp" />
 
     <TextView
         android:text="Co-ordinates NOT fetched"
@@ -123,8 +73,108 @@
         android:textSize="18sp"
         android:fontFamily="sans-serif-light"
         android:textStyle="normal|bold"
-        android:layout_marginBottom="11dp"
-        android:layout_above="@+id/floatingActionButton"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/btn"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName|textCapWords"
+        android:ems="10"
+        android:id="@+id/editText_name"
+        android:hint="Name (Uploader)"
+        android:fontFamily="sans-serif-light"
+        android:layout_below="@+id/editText5"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="36dp" />
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:hint="Phone"
+        android:layout_below="@+id/editText_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords|textPersonName"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:fontFamily="sans-serif-light"
+        android:hint="District"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btn" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText8_dic"
+        android:fontFamily="sans-serif-light"
+        android:hint="Designation"
+        android:layout_below="@+id/editText_nic"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/editText3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editText7_cic"
+        android:fontFamily="sans-serif-light"
+        android:hint="Contact"
+        android:layout_below="@+id/editText_nic"
+        android:layout_alignStart="@+id/editText4"
+        android:layout_alignParentEnd="true"
+        android:inputType="phone" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:id="@+id/loader_accuracy"
+        android:layout_height="wrap_content"
+        app:indicatorName="BallClipRotatePulseIndicator"
+        app:indicatorColor="@color/some_teal2"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName|textCapWords"
+        android:ems="10"
+        android:id="@+id/editText_nic"
+        android:hint="Name (In-Charge)"
+        android:fontFamily="sans-serif-light"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true" />
+
+    <RadioButton
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton"
+        app:buttonTint="@color/some_red"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/acc_tv"
+        android:layout_above="@+id/floatingActionButton"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold" />
+
 </RelativeLayout>
