@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Fetch</string>
     <string name="select">Select</string>
+    <string name="title_activity_login">Sign in</string>
+
+
 </resources>

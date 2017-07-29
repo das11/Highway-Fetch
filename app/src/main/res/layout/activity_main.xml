@@ -11,11 +11,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="kdas.i_nterface.fetch.MainActivity">
 
-    <Spinner
+    <android.support.v7.widget.AppCompatSpinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:prompt="@string/select"
         android:layout_centerHorizontal="true"
         android:id="@+id/spinner" />
 
@@ -101,14 +100,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
-    <EditText
+    <android.support.v7.widget.AppCompatSpinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textCapWords|textPersonName"
         android:ems="10"
         android:id="@+id/editText3"
         android:fontFamily="sans-serif-light"
-        android:hint="District"
         android:layout_below="@+id/editText2"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/btn" />
@@ -164,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radioButton"
-        app:buttonTint="@color/some_red"
+        android:buttonTint="@color/some_red"
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
         android:layout_toEndOf="@+id/textView" />

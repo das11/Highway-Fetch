@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_name"
-        android:icon="@drawable/ic_speaker_light"
+        android:icon="@drawable/ic_vol_type_speaker_light"
         android:title="Text"
         app:showAsAction="always"
         android:orderInCategory="0"/>

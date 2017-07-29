@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -54,9 +55,9 @@ public class MainActivity extends AppCompatActivity implements
 
     Location coord;
 
-    String place,name_s, phone_s, dis_s, town_s, location_name, nic_s, dic_s, cic_s;
+    String place,name_s, phone_s, town_s, location_name, nic_s, dic_s, cic_s, district_s;
 
-    EditText name, phone, dis, town, location_name_ed, nic, dic, cic;
+    EditText name, phone, town, location_name_ed, nic, dic, cic;
     RadioButton radioButton;
     TextView textView, acc_tv;
 
@@ -75,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements
 
         name = (EditText)findViewById(R.id.editText_name);
         phone = (EditText)findViewById(R.id.editText2);
-        dis = (EditText)findViewById(R.id.editText3);
         town = (EditText)findViewById(R.id.editText4);
         location_name_ed = (EditText)findViewById(R.id.editText5);
 
@@ -91,14 +91,55 @@ public class MainActivity extends AppCompatActivity implements
 
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
         final List<String> places = new ArrayList<>();
+        places.add("Select");
         places.add("Hospital");
         places.add("Police Station");
+        places.add("Police Control Room");
+        places.add("Pharmacy");
         places.add("Car service");
         places.add("Bike service");
         places.add("Public Toilet");
         places.add("Tyre Repair");
         places.add("Refueling station");
         places.add("Drinking Water");
+
+        Spinner spinner_dis = (Spinner)findViewById(R.id.editText3);
+        final List<String> districts = new ArrayList<>();
+        districts.add("Districts");
+        districts.add("Tinsukia");
+        districts.add("Dibrugarh");
+        districts.add("Dhemaji");
+        districts.add("Charaideo");
+        districts.add("Sivasagar");
+        districts.add("Lakhimpur");
+        districts.add("Majuli");
+        districts.add("Jorhat");
+        districts.add("Biswanath");
+        districts.add("Golaghat");
+        districts.add("Karbi Anglong East");
+        districts.add("Sonitpur");
+        districts.add("Nagaon");
+        districts.add("Hojai");
+        districts.add("Karbi Anglong West");
+        districts.add("Dima Hassao");
+        districts.add("Cachar");
+        districts.add("Hailakandi");
+        districts.add("Karimganj");
+        districts.add("Morigaon");
+        districts.add("Udalguri");
+        districts.add("Darrang");
+        districts.add("Kamrup Metro");
+        districts.add("Baksa");
+        districts.add("Nalbari");
+        districts.add("Kamrup");
+        districts.add("Barpeta");
+        districts.add("Chirang");
+        districts.add("Bongaigaon");
+        districts.add("Goalpara");
+        districts.add("Kokrajhar");
+        districts.add("Dhubri");
+        districts.add("South Salmara-Mankachar");
+
 
         final ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, places);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -118,6 +159,23 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+        final ArrayAdapter<String> districtAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, districts);
+        districtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_dis.setAdapter(districtAdapter);
+
+        spinner_dis.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                district_s = districtAdapter.getItem(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         Button submit = (Button)findViewById(R.id.btn);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +183,6 @@ public class MainActivity extends AppCompatActivity implements
                 if (fetched && flag_check()){
                     name_s = name.getText().toString();
                     phone_s = phone.getText().toString();
-                    dis_s = dis.getText().toString();
                     town_s = town.getText().toString();
                     location_name = location_name_ed.getText().toString();
 
@@ -133,9 +190,9 @@ public class MainActivity extends AppCompatActivity implements
                     dic_s = dic.getText().toString();
                     cic_s = cic.getText().toString();
 
-                    Log.d("ds", place +  name_s + phone_s + dis_s + town_s + "");
+                    Log.d("ds", place +  name_s + phone_s + district_s + town_s + "");
 
-                    district = root.child(dis_s);
+                    district = root.child(district_s);
                     f_town = district.child(town_s);
                     f_place = f_town.child(place);
                     f_placename = f_place.child(location_name);
@@ -152,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements
                     f_location.setValue(coord, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                                textView.setText("Location saved");
+                            textView.setText("Location saved");
                         }
                     });
                     f_nic.setValue(nic_s);
@@ -197,8 +254,6 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
-
-
 //    @Override
 //    protected void onStart(){
 //        if (mGoogleApiClient != null)
@@ -208,7 +263,6 @@ public class MainActivity extends AppCompatActivity implements
     private boolean flag_check() {
 
         if (!name.getText().toString().isEmpty()
-                && !dis.getText().toString().isEmpty()
                 && !phone.getText().toString().isEmpty()
                 && !town.getText().toString().isEmpty()
                 && !location_name_ed.getText().toString().isEmpty()
@@ -310,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        Intent i = new Intent(MainActivity.this, help.class);
+        Intent i = new Intent(MainActivity.this, SignIn.class);
         startActivity(i);
 
         return super.onOptionsItemSelected(item);
