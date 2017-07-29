@@ -29,6 +29,7 @@ public class SignIn extends AppCompatActivity {
     String phone, name, mVerificationId;
 
     FirebaseAuth mAuth;
+    FirebaseUser user;
     PhoneAuthProvider.ForceResendingToken mResendToken;
 
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -98,7 +99,7 @@ public class SignIn extends AppCompatActivity {
                 // The SMS verification code has been sent to the provided phone number, we
                 // now need to ask the user to enter the code and then construct a credential
                 // by combining the code with a verification ID.
-                Log.d("log", "onCodeSent:" + verificationId);
+                Log.d("SENT", "onCodeSent:" + verificationId);
 
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId;
@@ -112,9 +113,13 @@ public class SignIn extends AppCompatActivity {
                 if (!contact.getText().toString().isEmpty()) {
                     initVerification(contact.getText().toString());
 
+                    Toast.makeText(getApplicationContext(), "SMS Code sent\nWait for a minute", Toast.LENGTH_SHORT).show();
+
                     contact_til.setVisibility(View.GONE);
                     name_til.setVisibility(View.GONE);
                     code_til.setVisibility(View.VISIBLE);
+                    signup.setVisibility(View.GONE);
+                    done.setVisibility(View.VISIBLE);
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Cant be empty", Toast.LENGTH_LONG).show();
@@ -160,8 +165,10 @@ public class SignIn extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("log", "signInWithCredential:success");
 
-                            FirebaseUser user = task.getResult().getUser();
-                            // ...
+                            user = task.getResult().getUser();
+                            Intent i = new Intent(SignIn.this, MainActivity.class);
+                            startActivity(i);
+
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w("log", "signInWithCredential:failure", task.getException());

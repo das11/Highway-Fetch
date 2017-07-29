@@ -25,8 +25,10 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         app:fabSize="normal"
-        app:srcCompat="@drawable/pin"
+        app:srcCompat="@drawable/done_w"
         android:id="@+id/donefab"
+        app:backgroundTint="@color/some_teal"
+        android:visibility="invisible"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="21dp" />
@@ -118,7 +120,7 @@
                         android:inputType="phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="CODE" />
+                        android:hint="SMS Code " />
                 </android.support.design.widget.TextInputLayout>
 
             </RelativeLayout>
@@ -144,7 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:fabSize="normal"
-        android:src="@drawable/pin"
+        android:src="@drawable/done_w"
         app:backgroundTint="@color/some_teal"
         android:layout_alignTop="@id/cv"
         android:layout_marginTop="25dp"
